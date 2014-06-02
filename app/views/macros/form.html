@@ -1,0 +1,23 @@
+{% macro text_field_tag(name, value, class, id, placeholder) %}
+    <input type="text" id="{{ id }}" name="{{ name }}" value="{{ value|e }}" class="{{ class|default('form-control') }}" placeholder="{{ placeholder }}" />
+{% endmacro %}
+
+{% macro hidden_field_tag(name, value) %}
+	<input type="hidden" name="{{ name }}" value="{{ value }}">
+{% endmacro %}
+
+{% macro text_area_tag(name, value, class, id, placeholder) %}
+	<textarea name="{{ name }}" class="{{ class|default('form-control') }}" id="{{ id }}" placeholder="{{ placeholder }}">{{value}}</textarea>
+{% endmacro %}
+
+{% macro form_tag(action, method) %}
+    <form action="{{ action }}" method="{{ method|default('POST') }}">
+{% endmacro %}
+
+{% macro form_end_tag() %}
+    </form>
+{% endmacro %}
+
+{% macro submit_tag(content, class, id) %}
+    <button type="submit" class="{{ class|default('btn btn-default') }}" id="{{ id }}">{{ content }}</button>
+{% endmacro %}

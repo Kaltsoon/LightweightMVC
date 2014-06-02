@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% import "macros/form.html" as form %}
+
+{% block content %}
+	{{ form.form_tag("/users/edit", "POST") }}
+		{{ form.text_field_tag("name", user.name, null, null, null) }}
+		{{ form.hidden_field_tag("id", user.id) }}
+		{{ form.submit_tag("Create", null, null) }}
+	{{ form.form_end_tag() }}
+{% endblock %}
