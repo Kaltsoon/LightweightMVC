@@ -86,7 +86,7 @@ class PersonController extends BaseController{
 }
 </pre>
 
-## Routing
+### Routing
 
 Next we wan't to assign certain routes to different controllers. The framework uses Fat-Free micro framework for its routes but with different interface. All application's routes can be found in the <code>config/Routes.php</code>. Here's an example how we could assign routes to the controller we created earlier:
 
