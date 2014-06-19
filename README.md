@@ -12,4 +12,4 @@ class Person extends BaseModel{
 }
 </pre>
 
-The variable <code>$attribute_accessor</code> tells the base model, which of the model's attributes should be saved or edited in the database. In this case base model expects that there's a table <code>Person</code> in the database having fields <code>name</code>, <code>gender</code>, <code>address</code> and <code>age</code>. 
+The variable <code>$attribute_accessor</code> tells the base model, which of the model's attributes should be saved or edited in the database. In this case base model expects that there's a table <code>Person</code> in the database having fields <code>name</code>, <code>gender</code>, <code>address</code> and <code>age</code>. On top of that there should be a primary key <code>id</code> with <code>AUTO_INCREMENT</code> in the table <code>Person</code>.
