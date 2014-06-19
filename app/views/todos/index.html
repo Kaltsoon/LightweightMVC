@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import "macros/form.html" as form %}
+
+{% block content %}
+	<table class="table table-striped">
+		<thead>
+			<th>To-Do</th>
+			<th>Description</th>
+			<th></th>
+			<th></th>
+		</thead>
+		<tbody>
+		{% for todo in todos %}
+		<tr>
+			<td>
+				<a href="/todos/{{ todo.id }}">{{ todo.name }}</a>
+			</td>
+			<td>{{ todo.description }}</td>
+			<td>
+				<a href="/todos/{{ todo.id }}/edit" class="btn btn-info">Edit</a>
+			</td>
+			<td>
+				{{ form.form_tag("/todos/delete", "POST") }}
+					<input type="hidden" name="id" value="{{ todo.id }}">
+					{{ form.submit_tag("Remove", "btn btn-danger btn-sm", null) }}
+				{{ form.form_end_tag }}
+			</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	<a href="/todos/new" class="btn btn-default">Create a To-Do</a>
+{% endblock %}

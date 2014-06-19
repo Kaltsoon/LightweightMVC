@@ -57,7 +57,7 @@
 		}
 
 		private function assign($assignment, $params){
-			$controller = explode("#",$assignment)[0];
+			$controller = explode("#",$assignment)[0] . "Controller";
 			$method = explode("#",$assignment)[1];
 			
 			$class = new $controller;

@@ -8,14 +8,14 @@
 	*/
 	$router = new Router();
 
-	$router->get("/", "UserController#index");
-	$router->get("/users", "UserController#index");
-	$router->get("/users/new", "UserController#creation");
-	$router->get("/users/@id", "UserController#show");
-	$router->post("/users", "UserController#create");
-	$router->post("/users/delete", "UserController#destroy");
-	$router->post("/users/edit", "UserController#update");
-	$router->get("/users/@id/edit", "UserController#edit");
+	$router->get("/", "Todo#index");
+	$router->get("/todos", "Todo#index");
+	$router->get("/todos/new", "Todo#creation");
+	$router->get("/todos/@id", "Todo#show");
+	$router->post("/todos", "Todo#create");
+	$router->post("/todos/delete", "Todo#destroy");
+	$router->post("/todos/edit", "Todo#update");
+	$router->get("/todos/@id/edit", "Todo#edit");
 
 	$router->route();
 ?>

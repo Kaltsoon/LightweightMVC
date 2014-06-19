@@ -1,4 +1,7 @@
 <?php 
+	// Require database config
+	require_once("config/Database.php");
+
 	// Require lib classess
 	require_once("lib/Utils.php");
 	require_once("lib/BaseModel.php");

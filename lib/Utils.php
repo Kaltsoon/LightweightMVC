@@ -12,8 +12,10 @@
 		*/
 		public static function db_connection(){
 			$connection = null;
+			$db_conf = database_config();
+
 			try {
-			    $connection = new PDO("mysql:host=localhost;dbname=framework", "root", "root");
+			    $connection = new PDO("mysql:host=" . $db_conf["host"] . ";dbname=" . $db_conf["database"], $db_conf["username"], $db_conf["password"]);
 			} catch (PDOException $e) { }
 			return $connection;
 		}
