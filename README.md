@@ -101,7 +101,7 @@ $router->route();
 
 So basicly just give router the route and the controller and its function to be called when the request is made. Notice that the format is <code>ControllerName#function</code>, so drop out the <code>Controller</code> ending.
 
-## Methods and attributes
+### Methods and attributes
 
 * <code>$params</code>, contains all the request parameters. For example if user has made an get request to <code>persons/9</code> (check the routes and controller we created earlier), the <code>$this->params["id"]</code> would contain the id 
 of the person in question. Also a form which posts person's name would pass the <code>name</code> parameter to <code>$this->params["name"]</code> (check the routes and controller we created earlier)
