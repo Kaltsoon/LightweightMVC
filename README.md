@@ -59,9 +59,43 @@ All application's controllers should be located in the folder <code>app/controll
 class PersonController extends BaseController{
     public function index(){
         $persons = Person::all();
-        $this->render("persons/index", array("persons" => $persons);
+        $this->render("persons/index", array("persons" => $persons));
     }
     
+    public function show(){
+    	$person = Person::find($this->params["id"]);
+    	$this->render("persons/show", array("person" => $person));
+    }
+    
+    public function creation(){
+    	$this->render("persons/creation_form");
+    }
+    
+    public function create(){
+    	$person = new Person;
+    	$person->name = "Kalle";
+		$person->gender = "Male";
+		$person->address = "Street 1";
+		$person->age = 21;
+		$person->save();
+	
+		$this->redirect_to("/persons/" . $person->id);
+    }
     
 }
 </pre>
+
+## Routing
+
+Next we wan't to assign certain routes to different controllers. The framework uses Fat-Free micro framework for its routes but with different interface. All application's routes can be found in the <code>config/Routes.php</code>. Here's an example how we could assign routes to the controller we created earlier:
+
+<pre>
+$router = new Router();
+$router->get("/", "Person#index");
+$router->get("/persons/@id", "Person#show");
+$router->get("/persons/new", "Person#creation");
+$router->post("/persons/new", "Person#create");
+$router->route();
+</pre>
+
+So basicly just give router the route and the controller and its function to be called when the request is made. Notice that the format is <code>ControllerName#function</code>, so drop out the <code>Controller</code> ending.
